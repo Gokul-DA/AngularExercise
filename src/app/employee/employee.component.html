@@ -1,0 +1,25 @@
+<p>employee works!</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Employee ID</th>
+      <th>Employee Name</th>
+      <th>Salary</th>
+      <th>Joindate</th>
+      <th>Department</th>
+      <th>Designation</th>
+      <th>Grading</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>{{ employee.empId }}</td>
+      <td>{{ employee.empName }}</td>
+      <td>{{ employee.salary | currency : "INR" : "symbol" : "5.1-2" }}</td>
+      <td>{{ employee.joinDate | date : "yyyy-MM-dd" }}</td>
+      <td>{{ employee.department }}</td>
+      <td>{{ employee.designation }}</td>
+      <td>{{ employee.grading | number : "1.2-2" }}</td>
+    </tr>
+  </tbody>
+</table>
