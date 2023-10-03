@@ -1,0 +1,25 @@
+<div>
+  <table class="table table-striped table-light table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Product Code</th>
+        <th>Product Desc</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Category</th>
+        <th>Manufacturer</th>
+      </tr>
+    </thead>
+
+    <tbody *ngFor="let product of products">
+      <tr>
+        <td>{{ product.productCode }}</td>
+        <td>{{ product.productDescription }}</td>
+        <td>{{ product.unitPrice }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.manufacturer }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
