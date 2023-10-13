@@ -6,6 +6,8 @@ import { ProductComponent } from './product-component/product-component.componen
 import { FormsModule } from '@angular/forms';
 import { EmployeeComponent } from './employee/employee.component';
 import { PriceFilterPipe } from './product-component/price-filter.pipe';
+import { JobseekersComponent } from './jobseekers/jobseekers.component';
+import { EmailValidatorDirective } from './jobseekers/emailValidator.directive';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import { PriceFilterPipe } from './product-component/price-filter.pipe';
     ProductComponent,
     EmployeeComponent,
     PriceFilterPipe,
+    JobseekersComponent,
+    EmailValidatorDirective,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],

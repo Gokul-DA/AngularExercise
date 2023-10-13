@@ -1,0 +1,27 @@
+s
+<h1>Job Seekers Details</h1>
+<form #jobForm="ngForm" (ngSubmit)="submit()">
+  <div class="col-auto">
+    <div class="input-group mb-2 mt-2">
+      <div class="input-group-prepend">
+        <label for="inlineFormInputGroup"
+          ><div class="input-group-text">FirstName</div></label
+        >
+      </div>
+      <input
+        type="text"
+        class="form-control"
+        id="inlineFormInputGroup"
+        placeholder="FirstName"
+      />
+    </div>
+  </div>
+
+  <p class="sr-only">
+    <span>Important information:</span>
+    This information is crucial for screen reader users.
+  </p>
+
+  <div></div>
+  <div class="form-control"></div>
+</form>

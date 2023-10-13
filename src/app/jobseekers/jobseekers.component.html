@@ -1,0 +1,310 @@
+<h1>Job Seekers Application</h1>
+<form #jobseeker="ngForm" (ngSubmit)="submit(jobseeker)" class="container">
+  <div class="form-group">
+    <label class="form-label" class="form-label" for="firstName"
+      >FirstName</label
+    >
+    <input
+      type="text"
+      id="firstName"
+      name="firstName"
+      class="form-control"
+      required
+      minlength="5"
+      maxlength="10"
+      [(ngModel)]="jobSeeker.firstName"
+      #firstName="ngModel"
+    />
+    <div
+      class="alert alert-danger"
+      *ngIf="firstName.touched && firstName.errors?.['required']"
+    >
+      FirstName is mandatory
+    </div>
+
+    <div
+      class="alert alert-danger"
+      *ngIf="firstName.touched && firstName.errors?.['minlength']"
+    >
+      Length should atleast be 5
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="form-label" class="form-label" for="lastName"
+      >Last Name</label
+    >
+    <input
+      type="text"
+      id="lastName"
+      name="lastName"
+      class="form-control"
+      required
+      minlength="5"
+      maxlength="10"
+      [(ngModel)]="jobSeeker.lastName"
+    />
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" for="lastName">Email</label>
+    <input
+      type="text"
+      id="email"
+      name="email"
+      class="form-control"
+      required
+      [(ngModel)]="jobSeeker.email"
+      appEmailValidator
+      #email="ngModel"
+    />
+    <div>
+      <div
+        class="alert alert-danger"
+        *ngIf="email.touched && email.errors?.['required']"
+      >
+        Email is required
+      </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="email.touched && email.errors?.['appEmailValidator']"
+      >
+        Email is not in correct format
+      </div>
+    </div>
+  </div>
+  <div>
+    <h2 class="h2">Address Details</h2>
+    <div class="form-group">
+      <label class="form-label" for="addressLine1">Line 1</label>
+      <input
+        type="text"
+        id="addressLine1"
+        name="addressLine1"
+        class="form-control"
+        required
+        minlength="5"
+        maxlength="10"
+        [(ngModel)]="jobSeeker.address.line1"
+      />
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="addressLine2">Line 2</label>
+      <input
+        type="text"
+        id="addressLine2"
+        name="addressLine2"
+        class="form-control"
+        required
+        minlength="5"
+        maxlength="10"
+        [(ngModel)]="jobSeeker.address.line2"
+      />
+    </div>
+    <div class="">
+      <div class="row">
+        <div class="col">
+          <label class="form-label" for="city">City</label>
+          <input
+            type="text"
+            id="city"
+            name="city"
+            class="form-control"
+            required
+            minlength="5"
+            maxlength="10"
+            [(ngModel)]="jobSeeker.address.city"
+          />
+        </div>
+        <div class="col">
+          <label class="form-label" for="state">State</label>
+          <input
+            type="text"
+            id="state"
+            name="state"
+            class="form-control"
+            required
+            minlength="5"
+            maxlength="10"
+            [(ngModel)]="jobSeeker.address.state"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="">
+      <div class="row">
+        <div class="col-md-6">
+          <label class="form-label" class="form-label" for="zipCode"
+            >Zip Code</label
+          >
+          <input
+            type="text"
+            id="zipCode"
+            name="zipCode"
+            class="form-control"
+            required
+            minlength="5"
+            maxlength="10"
+            [(ngModel)]="jobSeeker.address.zipCode"
+          />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label" class="form-label" for="country"
+            >Country</label
+          >
+          <input
+            type="text"
+            id="country"
+            name="country"
+            class="form-control"
+            required
+            minlength="5"
+            maxlength="10"
+            [(ngModel)]="jobSeeker.address.country"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="stateOfResident">State Of Resident</label>
+      <input
+        type="text"
+        id="stateOfResident"
+        name="stateOfResident"
+        class="form-control"
+        required
+        minlength="5"
+        maxlength="10"
+        [(ngModel)]="jobSeeker.address.stateOfResident"
+      />
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="phoneNumber">Phone Number</label>
+      <input type="text" name="countryCode" id="countryCode" size="4" />
+      <input
+        type="text"
+        id="phoneNumber"
+        name="phoneNumber"
+        required
+        minlength="10"
+        maxlength="10"
+        size="20"
+        [(ngModel)]="jobSeeker.address.phoneNumber"
+      />
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="alternateNumber">Alternate Number</label>
+      <input type="text" name="countryCode" size="4" />
+      <input
+        type="number"
+        id="alternateNumber"
+        name="alternateNumber"
+        minlength="10"
+        maxlength="10"
+        [(ngModel)]="jobSeeker.address.alternateNumber"
+      />
+    </div>
+  </div>
+
+  <div>
+    <h2 class="h2">Job Details</h2>
+
+    <div class="form-group">
+      <label class="form-label" for="position"
+        >Position for which applying for</label
+      >
+      <select
+        type="text"
+        id="position"
+        name="position"
+        class="form-control"
+        minlength="5"
+        maxlength="10"
+        [(ngModel)]="jobSeeker.jobDetails.position"
+        #position="ngModel"
+      >
+        <ng-container *ngFor="let option of jobSeeker.jobDetails.openPositions">
+          <option [value]="option">{{ option }}</option>
+        </ng-container>
+      </select>
+    </div>
+    <div class="form-group" *ngIf="position.value == 'Others'">
+      <label class="form-label" for="otherPosition"
+        >If others, kindly specify</label
+      >
+      <input
+        type="text"
+        id="otherPosition"
+        name="otherPosition"
+        class="form-control"
+        minlength="5"
+        maxlength="10"
+        [(ngModel)]="jobSeeker.jobDetails.otherPosition"
+      />
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="workingMode">Working Model</label>
+      <select
+        type="text"
+        id="workingMode"
+        name="workingMode"
+        class="form-control"
+        minlength="5"
+        maxlength="10"
+        [(ngModel)]="jobSeeker.jobDetails.workingMode"
+      >
+        <ng-container
+          *ngFor="let option of jobSeeker.jobDetails.workingModeOptions"
+        >
+          <option [value]="option">{{ option }}</option>
+        </ng-container>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="previouslyWorked"
+        >Have you previosly worked with us</label
+      >
+      <select
+        type="text"
+        id="previouslyWorked"
+        name="previouslyWorked"
+        class="form-control"
+        required
+        [(ngModel)]="jobSeeker.jobDetails.previouslyWorked"
+        #previouslyWorked="ngModel"
+      >
+        <option [ngValue]="true">Yes</option>
+        <option [ngValue]="false">No</option>
+      </select>
+    </div>
+
+    <div *ngIf="previouslyWorked.value">
+      <label class="form-label" for="when">If Yes, when: </label>
+      <input
+        type="date"
+        id="when"
+        name="when"
+        class="col-lg"
+        required
+        [(ngModel)]="jobSeeker.jobDetails.when"
+      />
+    </div>
+  </div>
+  <div>
+    <div class="form-group">
+      <h2 class="h2" for="uploadCV">Upload CV</h2>
+      <input
+        type="file"
+        id="uploadCV"
+        name="uploadCV"
+        class="form-control"
+        required
+        [(ngModel)]="jobSeeker.uploadCV"
+      />
+    </div>
+  </div>
+  <div>
+    <button class="btn-primary" type="reset">Reset</button>
+    <button type="submit" disabled="jobSeeker.invalid">Submit</button>
+  </div>
+</form>
