@@ -1,0 +1,44 @@
+<h1>Reactive Forms</h1>
+<form [formGroup]="jobSeeker" (ngSubmit)="addJobSeeker()">
+  jobSeeker.invalid: {{ jobSeeker.invalid }}
+  <div class="form-group">
+    <label class="form-label" for="firstName">FirstName</label>
+    <input
+      class="form-control"
+      type="text"
+      name="firstName"
+      id="firstName"
+      formControlName="firstName"
+    />
+  </div>
+  <div class="form-group">
+    <label class="form-label" for="lastName">Last Name</label>
+    <input
+      class="form-control"
+      type="text"
+      name="lastName"
+      id="lastName"
+      formControlName="lastName"
+    />
+  </div>
+  <!-- <div class="form-group">
+    <label class="form-label" for="email">Email</label>
+    <input
+      class="form-control"
+      type="text"
+      name="email"
+      id="email"
+      formControlName="email"
+    /> -->
+  <!-- </div> -->
+  <div class="form-group">
+    <button class="btn btn-primary" type="reset">Reset</button>
+    <button
+      class="btn btn-primary"
+      type="submit"
+      [disabled]="jobSeeker.invalid"
+    >
+      Submit
+    </button>
+  </div>
+</form>
